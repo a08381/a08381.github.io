@@ -1,0 +1,13 @@
+--- mirai-core-all/build.gradle.kts	2021-02-06 12:51:58.939084400 +0800
++++ mirai-core-all/build_new.gradle.kts	2021-01-26 18:47:52.796293900 +0800
+@@ -22,7 +22,9 @@
+ description = "Mirai core shadowed"
+ 
+ dependencies {
+-    api(project(":mirai-core"))
++    api(project(":mirai-core")) {
++        exclude("org.bouncycastle", "bcprov-jdk15on")
++    }
+     api(project(":mirai-core-api"))
+     api(project(":mirai-core-utils"))
+ }
