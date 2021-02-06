@@ -1,6 +1,17 @@
---- mirai-core-all/build.gradle.kts	2021-02-06 12:51:58.939084400 +0800
-+++ mirai-core-all/build_new.gradle.kts	2021-01-26 18:47:52.796293900 +0800
-@@ -22,7 +22,9 @@
+From 177a4369ce398370357a03e26e1b135ed1240a9c Mon Sep 17 00:00:00 2001
+From: a08381 <632785425@163.com>
+Date: Sat, 6 Feb 2021 16:52:05 +0800
+Subject: [PATCH] build.
+
+---
+ mirai-core-all/build.gradle.kts | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/mirai-core-all/build.gradle.kts b/mirai-core-all/build.gradle.kts
+index b5287d129..ceed94e95 100644
+--- a/mirai-core-all/build.gradle.kts
++++ b/mirai-core-all/build.gradle.kts
+@@ -22,7 +22,9 @@ version = Versions.project
  description = "Mirai core shadowed"
  
  dependencies {
@@ -11,3 +22,6 @@
      api(project(":mirai-core-api"))
      api(project(":mirai-core-utils"))
  }
+-- 
+2.30.0.windows.2
+
