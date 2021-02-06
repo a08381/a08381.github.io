@@ -21,7 +21,7 @@ function build_mirai() {
     fi
     cd mirai-core-all/build/libs
     ls *.jar | sed -r 's#mirai-core-all-(.*)-all.jar#mv & mirai-core-all-\1-without-bcprov.jar#' | bash
-    rename 's/-all./-without-bcprov./' *.jar
+    # rename 's/-all./-without-bcprov./' *.jar
     cd ../../../..
 }
 
