@@ -12,13 +12,15 @@ function build_mirai() {
     rm -rf mirai
     git clone https://github.com/mamoe/mirai
     cd mirai
-    wget https://a08381.github.io/patches/01_build.patch
     git checkout $MIRAI_STABLE_VER
-    patch mirai-core-all/build.gradle.kts < 01_build.patch
+    curl https://a08381.github.io/patches/01_build.patch | git apply -
     ./gradlew shadowJar
-    git checkout $MIRAI_DEV_VER
-    ./gradlew shadowJar
+    if $MIRAI_STABLE_VER != $MIRAI_DEV_VER; then
+        git checkout $MIRAI_DEV_VER
+        ./gradlew shadowJar
+    fi
     cd mirai-core-all/build/libs
+    ls *.jar | sed -r 's#mirai-core-all-(.*)-all.jar#mv & mirai-core-all-\1-without-bcprov.jar#' | bash
     rename 's/-all./-without-bcprov./' *.jar
     cd ../../../..
 }
