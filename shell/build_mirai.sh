@@ -14,9 +14,11 @@ function build_mirai() {
     cd mirai
     git checkout $MIRAI_STABLE_VER
     curl https://a08381.github.io/patches/01_build.patch | git apply -
+    chmod +x gradlew
     ./gradlew shadowJar
     if $MIRAI_STABLE_VER != $MIRAI_DEV_VER; then
         git checkout $MIRAI_DEV_VER
+        chmod +x gradlew
         ./gradlew shadowJar
     fi
     cd mirai-core-all/build/libs
