@@ -10,7 +10,7 @@ function get_mirai_version() {
 
 function build_mirai() {
     rm -rf mirai
-    git clone https://github.com/mamoe/mirai
+    HTTP_PROXY=http://192.168.0.2:8080 HTTPS_PROXY=http://192.168.0.2:8080 git clone https://github.com/mamoe/mirai
     cd mirai
     git checkout $MIRAI_STABLE_VER
     curl https://a08381.github.io/patches/01_build.patch | git apply -
