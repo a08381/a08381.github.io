@@ -4,8 +4,8 @@ MIRAI_STABLE_VER=""
 MIRAI_DEV_VER=""
 
 function get_mirai_version() {
-    MIRAI_STABLE_VER=$(curl -L "https://botapi.dead-war.cn/mirai/version?stable=1")
-    MIRAI_DEV_VER=$(curl -L "https://botapi.dead-war.cn/mirai/version?stable=0")
+    MIRAI_STABLE_VER=$(curl -L "https://botapi.dead-war.cn/mirai/version/stable")
+    MIRAI_DEV_VER=$(curl -L "https://botapi.dead-war.cn/mirai/version/dev")
 }
 
 function build_mirai() {
