@@ -44,8 +44,10 @@ function copy_file() {
     fi
     if [ -e "mirai/mirai-core-all/build/libs/mirai-core-all-${MIRAI_STABLE_VER}-without-bcprov.jar" ]; then
         cp "mirai/mirai-core-all/build/libs/mirai-core-all-${MIRAI_STABLE_VER}-without-bcprov.jar" mirai_files/stable/
+    fi
     if [ -e "mirai/mirai-core-all/build/libs/mirai-core-all-${MIRAI_DEV_VER}-without-bcprov.jar" ]; then
         cp "mirai/mirai-core-all/build/libs/mirai-core-all-${MIRAI_DEV_VER}-without-bcprov.jar" mirai_files/dev/
+    fi
 }
 
 get_mirai_version
