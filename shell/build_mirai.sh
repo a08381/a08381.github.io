@@ -42,12 +42,8 @@ function copy_file() {
     if [ ! -d "mirai_files/dev" ]; then
         mkdir mirai_files/dev
     fi
-    if [ -e "mirai/mirai-core-all/build/libs/mirai-core-all-${MIRAI_STABLE_VER}-without-bcprov.jar" ]; then
-        cp "mirai/mirai-core-all/build/libs/mirai-core-all-${MIRAI_STABLE_VER}-without-bcprov.jar" mirai_files/stable/
-    fi
-    if [ -e "mirai/mirai-core-all/build/libs/mirai-core-all-${MIRAI_DEV_VER}-without-bcprov.jar" ]; then
-        cp "mirai/mirai-core-all/build/libs/mirai-core-all-${MIRAI_DEV_VER}-without-bcprov.jar" mirai_files/dev/
-    fi
+    ls mirai/mirai-core-all/build/libs/ | grep dev | sed -r 's#mirai-core-all-(.*)-without-bcprov.jar#cp mirai/mirai-core-all/build/libs/& mirai_files/dev/#' | bash
+    ls mirai/mirai-core-all/build/libs/ | grep -v dev | sed -r 's#mirai-core-all-(.*)-without-bcprov.jar#cp mirai/mirai-core-all/build/libs/& mirai_files/stable/#' | bash
 }
 
 get_mirai_version
