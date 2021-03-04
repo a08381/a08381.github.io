@@ -13,12 +13,17 @@ function build_mirai() {
     git clone https://github.com.cnpmjs.org/mamoe/mirai
     cd mirai
     curl https://a08381.github.io/patches/01_build.patch | git apply -
+    git stash
     git checkout $MIRAI_STABLE_VER
+    git stash apply
     chmod +x gradlew
     ./gradlew shadowJar
+    git checkout .
     git checkout $MIRAI_DEV_VER
+    git stash apply
     chmod +x gradlew
     ./gradlew shadowJar
+    git stash clear
     if [ -d "mirai-core-all/build/libs" ]; then
         cd mirai-core-all/build/libs
         ls *.jar | sed -r 's#mirai-core-all-(.*)-all.jar#mv & mirai-core-all-\1-without-bcprov.jar#' | bash
