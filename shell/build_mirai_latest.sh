@@ -4,12 +4,12 @@ MIRAI_STABLE_VER=""
 
 function get_mirai_version() {
     MIRAI_STABLE_VER=$(git tag | grep "^v[[:digit:]]\+\.[[:digit:]]\+\.[[:digit:]]\+$" | sed -n '$p')
-    echo "the latest version is $MIRAI_STABLE_VER"
 }
 
 function build_mirai() {
     git clone https://github.com/mamoe/mirai
     cd mirai
+    echo "the latest version is $MIRAI_STABLE_VER"
     curl https://a08381.github.io/patches/01_build.patch | git apply -
     git stash
     git checkout $MIRAI_STABLE_VER
