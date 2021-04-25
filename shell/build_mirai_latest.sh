@@ -4,6 +4,7 @@ MIRAI_STABLE_VER=""
 
 function get_mirai_version() {
     MIRAI_STABLE_VER=$(git tag | grep "^v[[:digit:]]\+\.[[:digit:]]\+\.[[:digit:]]\+$" | sed -n '$p')
+    echo "the latest version is $MIRAI_STABLE_VER"
 }
 
 function build_mirai() {
