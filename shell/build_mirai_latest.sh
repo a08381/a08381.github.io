@@ -7,6 +7,8 @@ function get_mirai_version() {
 }
 
 function build_mirai() {
+    git clone https://github.com/mamoe/mirai
+    cd mirai
     curl https://a08381.github.io/patches/01_build.patch | git apply -
     git stash
     git checkout $MIRAI_STABLE_VER
